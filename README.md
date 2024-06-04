@@ -22,52 +22,90 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+# Aplicación de Torneos de Esports
 
-## Installation
+[![Nest.js Version](https://img.shields.io/badge/NestJS-^9.0.0-E0234E?logo=nestjs&logoColor=white)](https://nestjs.com/)
+[![TypeORM Version](https://img.shields.io/badge/TypeORM-^0.3.0-6E4A7E?logo=typeorm&logoColor=white)](https://typeorm.io/)
+[![PostgreSQL Version](https://img.shields.io/badge/PostgreSQL-^13.0-4169E1?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 
-```bash
-$ yarn install
-```
+## Descripción
 
-## Running the app
+Esta aplicación de Nest.js permite la gestión de torneos de esports, incluyendo la creación, actualización, eliminación y consulta de torneos, jugadores y resultados.
 
-```bash
-# development
-$ yarn run start
+## Características
 
-# watch mode
-$ yarn run start:dev
+- Módulos de `Tournament` y `Player` con sus respectivas entidades y servicios.
+- Relación de uno-a-muchos entre `Tournament` y `Player`.
+- Validación de datos utilizando `class-validator`.
+- Configuración de la conexión a la base de datos PostgreSQL a través de TypeORM.
+- Estructura modular y organizada siguiendo las mejores prácticas de Nest.js.
 
-# production mode
-$ yarn run start:prod
-```
+## Requisitos
 
-## Test
+- [Node.js](https://nodejs.org/) versión 14 o superior
+- [PostgreSQL](https://www.postgresql.org/) versión 13 o superior
+- [Docker](https://www.docker.com/) (opcional, para ejecutar la aplicación en un entorno aislado)
 
-```bash
-# unit tests
-$ yarn run test
+## Instalación
 
-# e2e tests
-$ yarn run test:e2e
+1. Clona el repositorio:
 
-# test coverage
-$ yarn run test:cov
-```
+   ```bash
+   git clone https://github.com/stiv-ca/Van-Rossum-Tournament.git
+   ```
 
-## Support
+2. Instala las dependencias:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+   ```bash
+   cd Van-Rossum-Tournament
+   yarn install
+   ```
 
-## Stay in touch
+3. Configura la conexión a la base de datos:
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+   - Modifica el archivo `app.module.ts` con los detalles de tu base de datos PostgreSQL.
+   - También puedes utilizar el archivo `docker-compose.yml` para levantar un contenedor PostgreSQL con Docker.
 
-## License
+4. Ejecuta las migraciones de la base de datos:
 
-Nest is [MIT licensed](LICENSE).
+   ```bash
+   yarn typeorm migration:run
+   ```
+
+5. Inicia la aplicación en modo de desarrollo:
+
+   ```bash
+   yarn start:dev
+   ```
+
+La aplicación estará disponible en `http://localhost:3000/api/v1`.
+
+## Pruebas
+
+- Ejecuta las pruebas unitarias:
+
+  ```bash
+  yarn test
+  ```
+
+- Ejecuta las pruebas e2e:
+
+  ```bash
+  yarn test:e2e
+  ```
+
+- Genera el reporte de cobertura de pruebas:
+
+  ```bash
+  yarn test:cov
+  ```
+
+## Contribución
+
+Si deseas contribuir a este proyecto, siéntete libre de enviar pull requests o de abrir problemas (issues) en el repositorio de GitHub.
+
+## Licencia
+
+Este proyecto se distribuye bajo la [Licencia MIT](LICENSE).
+

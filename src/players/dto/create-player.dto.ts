@@ -8,4 +8,7 @@ export class CreatePlayerDto {
 
     @IsInt()
     score: number;
+
+    @IsString()
+    tournament:string
 }
