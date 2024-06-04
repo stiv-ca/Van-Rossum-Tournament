@@ -4,6 +4,7 @@
 /build
 /mysql
 /.vscode
+/data
 
 # Logs
 logs
